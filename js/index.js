@@ -24,11 +24,11 @@ const getList = () => {
       </li>
       `
     })
-
+    let list=$('.list')
     deleteBtn = $$('.list-group-item i')
     deleteBtn.forEach(item => {
       item.addEventListener('click', function () {
-        if (window.confirm('确定要删除此项吗？')) {
+        if (window.confirm('你确定要删除此项吗？')) {
           const objectId = this.getAttribute('data-id')
           myAjax({
             url: `http://localhost:3000/todo/${objectId}`,
@@ -54,4 +54,20 @@ $('#create-todo').addEventListener('click', function () {
     getList()
   }).catch(e => console.log(e))
 
+})
+
+todoInput.addEventListener('keydown',function (e) {
+  if (todoInput.value===''){
+    alert('输入框不能为空')
+  } else if (e.keyCode===13) {
+    getList()
+  }
+})
+
+$('#create-todo').addEventListener('click',function (e) {
+  if (todoInput.value===''){
+    alert('输入框不能为空')
+  } else if (e.keyCode===13) {
+    getList()
+  }
 })

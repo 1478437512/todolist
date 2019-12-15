@@ -8,12 +8,15 @@
 }
 
 .list .list-group-item {
-  border-color: #0c8ed9;
+  border-color: #444444;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.list .list-group-item a{
+  color: #005cbf;
+}
 .list .list-group-item i {
   cursor: pointer;
   transition: .3s;
